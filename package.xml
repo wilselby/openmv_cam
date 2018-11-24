@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>openmvcam_node</name>
+  <name>openMV_cam</name>
   <version>0.0.0</version>
-  <description>The openmvcam_node package</description>
+  <description>The openMV_cam package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag -->
   <!-- Example:  -->
