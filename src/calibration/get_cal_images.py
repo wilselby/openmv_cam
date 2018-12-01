@@ -1,25 +1,16 @@
 #!/usr/bin/env python2.7
 
 # Python libraries
-import sys, serial, struct, time, os
+import sys, serial, struct, time
 
 # Import OpenCV
 import cv2
 import numpy as np
-
+from datetime import datetime
 
 port = '/dev/openmvcam'
 serial_port = serial.Serial(port, baudrate=115200, bytesize=serial.EIGHTBITS, parity=serial.PARITY_NONE,
          xonxoff=False, rtscts=False, stopbits=serial.STOPBITS_ONE, timeout=None, dsrdtr=True)
-
-# Check for calibration data
-cal_path = './calibration/output/calib.npz'
-calibration = 0
-if os.path.isfile(cal_path):
-    cal = np.load(cal_path)
-    K = cal['camera_matrix']
-    D = cal['dist_coefs']
-    calibration = 1
 
 while True:
     # Read data from the serial buffer
@@ -34,15 +25,16 @@ while True:
     # Decode the array into an image
     img = cv2.imdecode(x, cv2.IMREAD_UNCHANGED)
 
-    # Undistort the image if calibration exists
-    if calibration:
-        DIM = img.shape[1::-1]
-        map1, map2 = cv2.fisheye.initUndistortRectifyMap(K, D, np.eye(3), K, DIM, cv2.CV_16SC2)
-        img = cv2.remap(img, map1, map2, interpolation=cv2.INTER_LINEAR, borderMode=cv2.BORDER_CONSTANT)
-
     cv2.imshow("Stream:", img)
     key = cv2.waitKey(20)
-    print(key)
+    
+    # save image to file, if pattern found
+    ret, corners = cv2.findChessboardCorners(cv2.cvtColor(img,cv2.COLOR_BGR2GRAY), (9,6))
+
+    if ret == True:
+        filename = datetime.now().strftime('%Y%m%d_%Hh%Mm%Ss%f') + '.jpg'
+        cv2.imwrite("./input/" + filename, img)
+        print("Here {} \n").format(filename)
 
     if key == 27:
         #seial_port.close()

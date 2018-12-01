@@ -25,8 +25,13 @@ from pyb import USB_VCP
 usb = USB_VCP()
 sensor.reset()                      # Reset and initialize the sensor.
 sensor.set_pixformat(sensor.RGB565) # Set pixel format to RGB565 (or GRAYSCALE)
+#sensor.set_auto_gain(True)          # Automatically set the gain
+#sensor.__write_reg(0x6B, 0x22)      # Enable Advanced AWB
+#sensor.set_auto_whitebal(True)      # Automatically set the white balance
+#sensor.set_auto_exposure(True)      # Automatically set the exposure
 sensor.set_framesize(sensor.QVGA)   # Set frame size to QVGA (320x240)
 sensor.skip_frames(time = 2000)     # Wait for settings take effect.
+
 
 while(True):
     cmd = usb.recv(4, timeout=5000)
