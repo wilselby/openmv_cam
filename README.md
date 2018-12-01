@@ -2,6 +2,7 @@
 [![Docker Stars](https://img.shields.io/docker/stars/wilselby/openmv_cam.svg)](https://hub.docker.com/r/wilselby/openmv_cam/)
 [![Docker Pulls](https://img.shields.io/docker/pulls/wilselby/openmv_cam.svg)](https://hub.docker.com/r/wilselby/openmv_cam/)
 [![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/wilselby/openMV_cam/blob/master/LICENSE)
+[![Build Status](https://travis-ci.org/wilselby/openMV_cam.svg?branch=master)](https://travis-ci.org/wilselby/openMV_cam)
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fwilselby%2FopenMV_cam.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fwilselby%2FopenMV_cam?ref=badge_shield)
 
 ## Install OpenMV IDE
