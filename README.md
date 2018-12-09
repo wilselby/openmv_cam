@@ -43,10 +43,10 @@ The script will save the files in the calibrate folder. It will only save images
 Once you have a set of calibration images we can run a calibration script. The script will output a series of images showing the detected checkerboard and the undistorted image. It will also output a file of calibration parameters.
 
 If you have a fisheye lense, use the calibrate_fisheye.py file
-python calibrate_fisheye
+python calibrate_fisheye './input/*.jpg'
 
 If you have a noraml lense, use the regular calibrate.py file
-python calibrate.py
+python calibrate.py './input/*.jpg'
 
 You can verify the calibration by running the cam_test.py file. It will load the calibration parameters if they are available and use them to undistort the images.
 

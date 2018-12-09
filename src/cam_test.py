@@ -42,7 +42,7 @@ while True:
 
     cv2.imshow("Stream:", img)
     key = cv2.waitKey(20)
-    print(key)
+    #print(key)
 
     if key == 27:
         #seial_port.close()

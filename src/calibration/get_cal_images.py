@@ -34,7 +34,7 @@ while True:
     if ret == True:
         filename = datetime.now().strftime('%Y%m%d_%Hh%Mm%Ss%f') + '.jpg'
         cv2.imwrite("./input/" + filename, img)
-        print("Here {} \n").format(filename)
+        print("Saved {} \n").format(filename)
 
     if key == 27:
         #seial_port.close()
