@@ -16,7 +16,7 @@ from cv_bridge import CvBridge, CvBridgeError
 
 class openmv_cam_client(object):
     def __init__(self):
-        self.port_name = '/dev/ttyACM0' #/dev/openmvcam
+        self.port_name = '/dev/openmvcam'
         self.serial_port = None
         self.img = None
         self.key = 0
