@@ -21,7 +21,7 @@ class openmv_cam_client(object):
         self.img = None
         self.key = 0
         self.bridge = CvBridge()
-        self.pub_raw = rospy.Publisher("/image/raw", Image, queue_size = 10)
+        self.pub_raw = rospy.Publisher("/openmv_cam/image/raw", Image, queue_size = 10)
         #self.pub_comp = rospy.Publisher("/image_compressed", CompressedImage, queue_size = 10)
 
 
