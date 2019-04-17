@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>openMV_cam</name>
+  <name>openmv_cam</name>
   <version>0.0.0</version>
   <description>The openMV_cam package</description>
 
