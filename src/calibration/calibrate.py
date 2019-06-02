@@ -18,6 +18,7 @@ from __future__ import print_function
 
 import numpy as np
 import cv2 as cv
+from glob import glob
 
 # built-in modules
 import os
@@ -41,15 +42,14 @@ if __name__ == '__main__':
     if not img_mask:
         img_mask = '../data/left??.jpg'  # default
     else:
-        img_mask = img_mask[0]
+        img_names = img_mask
 
-    img_names = glob(img_mask)
     debug_dir = args.get('--debug')
     if debug_dir and not os.path.isdir(debug_dir):
         os.mkdir(debug_dir)
     square_size = float(args.get('--square_size'))
 
-    pattern_size = (10, 7)
+    pattern_size = (9, 6)
     pattern_points = np.zeros((np.prod(pattern_size), 3), np.float32)
     pattern_points[:, :2] = np.indices(pattern_size).T.reshape(-1, 2)
     pattern_points *= square_size
@@ -136,7 +136,7 @@ if __name__ == '__main__':
         #x, y, w, h = roi
         #dst = dst[y:y+h, x:x+w]
 
-        print('Undistorted image written to: %s' % outfile)
+        #print('Undistorted image written to: %s' % outfile)
         cv.imwrite(outfile, dst)
 
     cv.destroyAllWindows()

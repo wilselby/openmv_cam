@@ -76,7 +76,7 @@ rms, _, _, _, _ = \
     )
 
 # Save the calibration values
-np.savez('./output/calib.npz', camera_matrix=K, dist_coefs=D, rvecs=rvecs, tvecs=tvecs)
+np.savez('./output/calib_fisheye.npz', camera_matrix=K, dist_coefs=D, rvecs=rvecs, tvecs=tvecs)
     
 print("Found " + str(N_OK) + " valid images for calibration")
 print("DIM=" + str(_img_shape[::-1]))
